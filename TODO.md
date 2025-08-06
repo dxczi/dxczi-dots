@@ -1,0 +1,1 @@
+[] Figure out packages for minimal hyperland installation (JaKooLit Arch Install as reference)
