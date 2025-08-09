@@ -1,2 +1,4 @@
 # dxczi-dots
-My personal dot configs on Archbased systems (EndeavourOS, CachyOS) using Hyperland, as a complete beginner. 
+## Based on JaKooLit Hyprland
+
+Personalized install files and dot configs based on JaKooLit. Meant for Arch, Fedora, and NixOS systems using Hyperland.
