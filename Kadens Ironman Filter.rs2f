@@ -1,0 +1,438 @@
+meta { name = "Kadens Ironman Filter"; }
+
+// ==================== TABLE OF CONTENTS ================== //
+// 1. VALUE TIERS  - Defines item value thresholds           //
+// 2. COLORS       - Assigns colors for highlighting         //
+// 3. ITEM HIDES   - Hides low-Quantity items                //
+// 4. MEGA DROPS   - High-value rare items                   //
+// 5. ALCH DROPS   - High-alch items                         //
+// 6. MID-TIER     - Mid-value items                         //
+// 7. FARMER       - Herbs and seeds                         //
+// ==========================================================//
+
+
+
+// ╔══════════════════════════════════════╗  
+// ║         COLOR DEFINITIONS            ║  
+// ╚══════════════════════════════════════╝  
+
+#define GOLD "ffD59F00"
+
+
+
+// ╔══════════════════════════════════════╗  
+// ║          COLOR & VISIBILITY          ║  
+// ╚══════════════════════════════════════╝  
+
+#define COLOR2(_fg) textColor = _fg; borderColor = _fg;
+#define COLOR3(_fg, _bg) textColor = _fg; borderColor = _fg; backgroundColor = _bg;
+#define HIDE_1(_name) if (name:_name && quantity:<2) { hidden = true; }
+#define DARK_BG(_name, _color) if (name:_name) { color = _color; borderColor = _color; backgroundColor = BLACK; }
+#define TEXT_HIGHLIGHT(_name, _color) if (name:_name) { color = _color; textAccent = 2; }
+
+
+
+// ╔══════════════════════════════════════╗  
+// ║       DEFENDER HIGHLIGHTS            ║  
+// ╚══════════════════════════════════════╝  
+
+#define TEXT_HIGHLIGHT(_name, _color) if (name:_name) { color = _color; textAccent = 2; }
+
+TEXT_HIGHLIGHT("Bronze defender", BRONZE)
+TEXT_HIGHLIGHT("Iron defender", IRON)
+TEXT_HIGHLIGHT("Steel defender", STEEL)
+TEXT_HIGHLIGHT("Black defender", BLACK)
+TEXT_HIGHLIGHT("Mithril defender", MITHRIL)
+TEXT_HIGHLIGHT("Adamant defender", ADAMANT)
+TEXT_HIGHLIGHT("Rune defender", RUNITE)
+TEXT_HIGHLIGHT("Dragon defender", RED)
+
+
+
+// ╔══════════════════════════════════════╗  
+// ║        POTION HIGHLIGHTS             ║  
+// ╚══════════════════════════════════════╝  
+
+TEXT_HIGHLIGHT("Super restore*", "ffe91e63")
+TEXT_HIGHLIGHT("Saradomin brew*", YELLOW)
+TEXT_HIGHLIGHT("Prayer potion*", "ff59D6AE")
+TEXT_HIGHLIGHT("Sanfew serum*", "ffe59e9e")
+TEXT_HIGHLIGHT("Super combat potion*", "ff2a9e16")
+TEXT_HIGHLIGHT("Divine Super combat potion*", "ff2a9e16")
+TEXT_HIGHLIGHT("Ranging potion*", "ff5FB7DA")
+TEXT_HIGHLIGHT("Divine Ranging potion*", "ff5FB7DA")
+TEXT_HIGHLIGHT("Bastion potion*", "ffdb721c")
+TEXT_HIGHLIGHT("Divine Bastion potion*", "ffdb721c")
+
+TEXT_HIGHLIGHT("Shark", "ffe59e9e")
+TEXT_HIGHLIGHT("Manta ray", "ffe59e9e")
+TEXT_HIGHLIGHT("Karambwan", "ffe59e9e")
+
+// ╔══════════════════════════════════════╗  
+// ║          COX HIGHLIGHTS              ║  
+// ╚══════════════════════════════════════╝  
+
+TEXT_HIGHLIGHT("Overload*", "ff1e88e5")
+TEXT_HIGHLIGHT("Prayer enhance*", MAGENTA)
+TEXT_HIGHLIGHT("Revitalisation*", "ffe91e63")
+TEXT_HIGHLIGHT("Xeric's aid*", YELLOW)
+
+TEXT_HIGHLIGHT("Golpar", "ff18BF8C")
+TEXT_HIGHLIGHT("Buchu leaf", "ffAC2315")
+TEXT_HIGHLIGHT("Noxifer", "ff7C1ADF")
+
+
+
+// ╔══════════════════════════════════════╗  
+// ║          TOA HIGHLIGHTS              ║  
+// ╚══════════════════════════════════════╝  
+
+TEXT_HIGHLIGHT("Ambrosia*", "ffE3ECE3")
+TEXT_HIGHLIGHT("Liquid adrenaline*", "ff35C6D7")
+TEXT_HIGHLIGHT("Nectar*", YELLOW)
+TEXT_HIGHLIGHT("Tears of elidinis*", "ffe91e63")
+
+
+
+// ╔══════════════════════════════════════════════════════╗  
+// ║             🗑️ HIDE LOW QUANTITY DROPS 🗑️            ║  
+// ║                Oh boy... 1x Gold Ore.                ║  
+// ║  Maybe if I collect 10,000 of these, I'll be rich?   ║  
+// ╚══════════════════════════════════════════════════════╝  
+
+HIDE("Uncut emerald" && quantity:<2)
+HIDE("Uncut ruby" && quantity:<2)
+HIDE("Uncut sapphire" && quantity:<2)
+HIDE("Adamantite bar" && quantity:<2)
+HIDE("Mithril bar" && quantity:<2)
+HIDE("Steel bar" && quantity:<2)
+HIDE("Gold ore" && quantity:<2)
+HIDE("" && quantity:<2)
+
+
+
+// ╔══════════════════════════════════════════════════════╗  
+// ║                🌟 MEGA RARE DROPS 🌟                 ║  
+// ║  You see the shiny purple light...                   ║  
+// ╚══════════════════════════════════════════════════════╝  
+
+// parameterize as desired
+#define MEGA(_name) if(name:_name) {color = RED;  \
+backgroundColor = WHITE;  \
+borderColor = RED;  \
+textAccent = 3;  \
+showLootbeam = true;\
+}
+
+MEGA("Abyssal dagger")
+MEGA("Abyssal whip")
+MEGA("Amulet of avarice")
+MEGA("Ancient crystal")
+MEGA("Ancient effigy")
+MEGA("Ancient emblem")
+MEGA("Ancient hilt")
+MEGA("Ancient medallion")
+MEGA("Ancient relic")
+MEGA("Ancient statuette")
+MEGA("Ancient totem")
+MEGA("Aranea boots")
+MEGA("Armadyl chainskirt")
+MEGA("Armadyl chestplate")
+MEGA("Armadyl crossbow")
+MEGA("Armadyl helmet")
+MEGA("Armadyl hilt")
+MEGA("Bandos chestplate")
+MEGA("Bandos hilt")
+MEGA("Bandos tassets")
+MEGA("Basilisk jaw")
+MEGA("Bellator vestige")
+MEGA("Berserker ring")
+MEGA("Black tourmaline core")
+MEGA("Blood shard")
+MEGA("Bottomless compost bucket")
+MEGA("Burning claw")
+MEGA("Bryophyta's essence")
+MEGA("Craw's bow (u)")
+MEGA("Crystal tool seed")
+MEGA("Dragon chainbody")
+MEGA("Dragon hunter wand")
+MEGA("Dragon pickaxe")
+MEGA("Dragon warhammer")
+MEGA("Draconic visage")
+MEGA("Earth warrior champion scroll")
+MEGA("Elder chaos hood")
+MEGA("Elder chaos robe")
+MEGA("Elder chaos top")
+MEGA("Eldritch orb")
+MEGA("Elysian sigil")
+MEGA("Eternal crystal")
+MEGA("Eternal gem")
+MEGA("Executioner's axe head")
+MEGA("Eye of the duke")
+MEGA("Fox whistle")
+MEGA("Ghoul champion scroll")
+MEGA("Giant champion scroll")
+MEGA("Goblin champion scroll")
+MEGA("Golden pheasant egg")
+MEGA("Harmonised orb")
+MEGA("Hobgoblin champion scroll")
+MEGA("Hydra leather")
+MEGA("Hydra's claw")
+MEGA("Imbued heart")
+MEGA("Imp champion scroll")
+MEGA("Inquisitor's great helm")
+MEGA("Inquisitor's hauberk")
+MEGA("Inquisitor's mace")
+MEGA("Inquisitor's plateskirt")
+MEGA("Jar of chemicals")
+MEGA("Jar of darkness")
+MEGA("Jar of decay")
+MEGA("Jar of dirt")
+MEGA("Jar of dreams")
+MEGA("Jar of eyes")
+MEGA("Jar of smoke")
+MEGA("Jar of souls")
+MEGA("Jar of spirits")
+MEGA("Jar of stone")
+MEGA("Jar of swamp")
+MEGA("Jogre champion scroll")
+MEGA("Kraken tentacle")
+MEGA("Leviathan's lure")
+MEGA("Lesser demon champion scroll")
+MEGA("Malediction shard 1")
+MEGA("Malediction shard 2")
+MEGA("Malediction shard 3")
+MEGA("Magma mutagen")
+MEGA("Magus vestige")
+MEGA("Magic fang")
+MEGA("Nihil horn")
+MEGA("Nightmare staff")
+MEGA("Occult necklace")
+MEGA("Odium shard 1")
+MEGA("Odium shard 2")
+MEGA("Odium shard 3")
+MEGA("Pegasian crystal")
+MEGA("Primordial crystal")
+MEGA("Saradomin hilt")
+MEGA("Seers ring")
+MEGA("Serpentine visage")
+MEGA("Skeletal visage")
+MEGA("Skeleton champion scroll")
+MEGA("Smouldering stone")
+MEGA("Spectral sigil")
+MEGA("Staff of the Dead")
+MEGA("Tanzanite fang")
+MEGA("Tanzanite mutagen")
+MEGA("Thammaron's sceptre (u)")
+MEGA("Tormented synapse")
+MEGA("Torva full helm (damaged)")
+MEGA("Torva platebody (damaged)")
+MEGA("Torva platelegs (damaged)")
+MEGA("Treasonous ring")
+MEGA("Trident of the seas")
+MEGA("Trident of the seas (full)")
+MEGA("Tyrannical ring")
+MEGA("Ultor vestige")
+MEGA("Uncut onyx")
+MEGA("Unsired")
+MEGA("Venator shard")
+MEGA("Venator vestige")
+MEGA("Viggora's chainmace (u)")
+MEGA("Virtus mask")
+MEGA("Virtus robe bottom")
+MEGA("Virtus robe top")
+MEGA("Voidwaker blade")
+MEGA("Voidwaker gem")
+MEGA("Voidwaker hilt")
+MEGA("Volatile orb")
+MEGA("Warrior ring")
+MEGA("Warped sceptre")
+MEGA("Zalcano shard")
+MEGA("Zamorak hilt")
+MEGA("Zamorakian spear")
+MEGA("Zaryte vambraces")
+MEGA("Zenyte shard")
+MEGA("Zombie champion scroll")
+MEGA("")
+
+
+
+// ╔══════════════════════════════════════════════════════╗  
+// ║                 🔥 HIGH ALCHEMY 🔥                   ║  
+// ║  No bank? No problem. Just turn it into coins.       ║  
+// ║  Another day, another Nature Rune sacrificed.        ║  
+// ╚══════════════════════════════════════════════════════╝ 
+
+// parameterize as desired
+#define ALCH(_name) if(name:_name) {color = BLACK; \
+backgroundColor = GOLD; \
+lootBeamColor = GOLD; \
+borderColor = GOLD; \
+textAccent = 3; \
+showLootbeam = true;\
+}
+
+ALCH("Air battlestaff")
+ALCH("Earth battlestaff")
+ALCH("Fire battlestaff")
+ALCH("Water battlestaff")
+ALCH("Dragon med helm")
+ALCH("Lava battlestaff")
+ALCH("Mystic air staff")
+ALCH("Mystic earth staff")
+ALCH("Mystic fire staff")
+ALCH("Mystic water staff")
+ALCH("Rune 2h sword")
+ALCH("Rune battleaxe")
+ALCH("Rune chainbody")
+ALCH("Rune full helm")
+ALCH("Rune halberd")
+ALCH("Rune kiteshield")
+ALCH("Rune med helm")
+ALCH("Rune pickaxe")
+ALCH("Rune platebody")
+ALCH("Rune scimitar")
+ALCH("Rune sq shield")
+ALCH("Rune platelegs")
+ALCH("Rune plateskirt")
+ALCH("Rune boots")
+ALCH("Rune axe")
+ALCH("Rune sword")
+ALCH("Rune scimitar")
+ALCH("Rune halberd")
+ALCH("Rune warhammer")
+ALCH("Rune longsword")
+ALCH("Rune dagger")
+ALCH("Rune hasta")
+ALCH("Onyx bolts (e)")
+ALCH("Dragon platelegs")
+ALCH("Dragon plateskirt")
+ALCH("Dragon dagger")
+ALCH("Dragon scimitar")
+ALCH("Adamant platelegs")
+ALCH("Rune 2h sword")
+ALCH("Rune full helm")
+ALCH("")
+
+// ╔══════════════════════════════════════════════════════╗
+// ║                    💀 MID DROPS 💀                   ║
+// ║   Oh wow... another Dust Battlestaff... so exciting. ║
+// ║  Too good to ignore, too bad to care. Pain.          ║
+// ╚══════════════════════════════════════════════════════╝
+
+#define MID(_name) if(name:_name) {color = MITHRIL; \
+backgroundColor = GROUNDITEMS_LOW; \
+borderColor = MITHRIL; \
+textAccent = 3; \
+showLootbeam = true;\
+}
+
+MID("Ballista limbs")
+MID("Ballista spring")
+MID("Bandos boots")
+MID("Black mask")
+MID("Claws of callisto")
+MID("Dark claw")
+MID("Drake's tooth")
+MID("Dragon 2h sword")
+MID("Dragon boots")
+MID("Dragon harpoon")
+MID("Dragonbone necklace")
+MID("Dust battlestaff")
+MID("Fangs of venenatis")
+MID("Frozen cache")
+MID("Giant egg sac(full)")
+MID("Granite gloves")
+MID("Granite hammer")
+MID("Granite ring")
+MID("Heavy frame")
+MID("Hill giant club")
+MID("Holy elixir")
+MID("Hueycoatl hide")
+MID("Hydra tail")
+MID("Light frame")
+MID("Mist battlestaff")
+MID("Monkey tail")
+MID("Mud battlestaff")
+MID("Ring of the gods")
+MID("Saradomin sword")
+MID("Skull of vet'ion")
+MID("Smoke battlestaff")
+MID("Spirit shield")
+MID("Staff of the dead")
+MID("Steam battlestaff")
+MID("Tome of earth (empty)")
+MID("Treasonous ring")
+MID("Tyrannical ring")
+MID("Clue scroll (easy)")
+MID("Clue scroll (medium)")
+MID("Clue scroll (hard)")
+MID("Clue scroll (elite)")
+MID("Clue scroll (master)*")
+MID("Dark totem")
+MID("Dark totem base")
+MID("Dark totem middle")
+MID("Dark totem bottom")
+MID("Dark totem top")
+MID("Ancient shard")
+MID("Godsword shard 1")
+MID("Godsword shard 2")
+MID("Godsword shard 3")
+MID("Chromium ingot")
+MID("Hydra's eye")
+MID("Hydra's fang")
+MID("Hydra's heart")
+MID("")
+
+
+
+
+// ╔══════════════════════════════════════════════════════╗
+// ║                     FARMING 🌿                       ║
+// ║               Herbs & Seeds Section                  ║
+// ║    Rare & useful herbs, seeds for profit & XP.       ║
+// ╚══════════════════════════════════════════════════════╝
+
+// parameterize as desired
+#define FARM(_name) if(name:_name) {color = GREEN; \
+textAccent = 1; \
+showLootbeam = true;\
+}
+
+FARM("Grimy Avantoe")
+FARM("Grimy Cadantine")
+FARM("Grimy Dwarf weed")
+FARM("Grimy irit leaf")
+FARM("Grimy Kwuarm")
+FARM("Grimy Lantadyme")
+FARM("Grimy Ranarr weed")
+FARM("Grimy Snapdragon")
+FARM("Grimy Toadflax")
+FARM("Grimy Torstol")
+FARM("Toadflax seed")
+FARM("Snapdragon seed")
+FARM("Kwuarm seed")
+FARM("Ranarr seed")
+FARM("Irit seed")
+FARM("Dwarf weed seed")
+FARM("Cadantine seed")
+FARM("Avantoe seed")
+FARM("Torstol seed")
+FARM("Lantadyme seed")
+FARM("Snape grass seed")
+FARM("Limpwurt seed")
+FARM("Watermelon seed")
+FARM("Yew seed")
+FARM("Magic seed")
+FARM("Maple seed")
+FARM("Teak seed")
+FARM("Mahogany seed")
+FARM("Pineapple seed")
+FARM("Papaya tree seed")
+FARM("Palm tree seed")
+FARM("Dragonfruit tree seed")
+FARM("Hespori seed")
+FARM("Spirit seed")
+FARM("Celastrus seed")
+FARM("Redwood tree seed")
+FARM("")
